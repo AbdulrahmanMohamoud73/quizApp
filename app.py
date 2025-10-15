@@ -113,37 +113,84 @@ def request_explanations(mcqs):
 st.set_page_config(page_title="QuizCraft", page_icon="🧠", layout="centered")
 st.markdown("""
 <style>
-/* Gradient background */
+/* 🌈 General App Background */
 .stApp {
-  background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
-  color: #0b1220;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  color: #0f172a;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Card */
+/* 🧠 Quiz Card */
 .quiz-card {
-  background: white; border-radius: 16px; padding: 18px 20px; 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  margin: 12px 0;
+  background: white;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin: 16px 0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease-in-out;
+}
+.quiz-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-/* Headings */
-h1, h2, h3 { color: #0b1220 !important; }
+/* 🏷️ Headings */
+h1, h2, h3 {
+  color: #1e293b !important;
+  font-weight: 700;
+}
 
-/* Buttons */
-.stButton>button {
-  border-radius: 12px;
+/* ✨ Buttons */
+.stButton > button {
+  border-radius: 10px;
   padding: 10px 18px;
+  background: linear-gradient(90deg, #6366f1, #3b82f6);
+  color: white;
+  border: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.stButton > button:hover {
+  background: linear-gradient(90deg, #4f46e5, #2563eb);
+}
+
+/* 💬 Pills for correctness */
+.pill {
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:0.85rem;
+  font-weight:600;
+  margin-bottom:4px;
+}
+.ok {
+  background:#dcfce7;
+  color:#166534;
+}
+.bad {
+  background:#fee2e2;
+  color:#991b1b;
+}
+
+/* 🧭 Sidebar */
+[data-testid="stSidebar"] {
+  background: #1e293b !important;
+  color: white;
+}
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] p {
+  color: white !important;
+}
+.stNumberInput label, .stTextInput label {
   font-weight: 600;
 }
-
-/* Pills for correctness */
-.pill {
-  display:inline-block; padding:4px 10px; border-radius:999px; font-size:0.85rem; font-weight:600;
-}
-.ok { background:#dcfce7; color:#166534; }
-.bad { background:#fee2e2; color:#991b1b; }
 </style>
 """, unsafe_allow_html=True)
+
 
 # ---- Sidebar Controls ----
 with st.sidebar:
