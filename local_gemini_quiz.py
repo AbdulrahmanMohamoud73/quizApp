@@ -15,6 +15,13 @@ Do NOT use a real production key in code you share. Replace the placeholder with
 import os
 import textwrap
 from typing import List
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Access your API key
+api_key = os.getenv("API_KEY")
 try:
     from google import genai
 except Exception as e:
@@ -24,7 +31,7 @@ except Exception as e:
     )
 
 # === EDIT THIS: placeholder API key (per your request) ===
-API_KEY = "YOUR_API_KEY_HERE"  # <-- replace with your key locally if running
+API_KEY = os.getenv("API_KEY")  # <-- replace with your key locally if running
 # =======================================================
 
 # You can either set the environment variable used by the SDK or set it programmatically:
